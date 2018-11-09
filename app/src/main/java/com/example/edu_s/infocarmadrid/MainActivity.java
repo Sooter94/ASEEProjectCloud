@@ -5,6 +5,9 @@ import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
     private MenuItem menuItem;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +48,7 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-/*
-        //Añadir un fragmento
-        Fragment fragment = new MenuFragment();
-        Bundle args = new Bundle();
-        //Accion de navegar del fragment
 
-        fragment.setArguments(args);
-        getSupportFragmentManager().beginTransaction().add(R.id.content_layout,fragment).commit();
-
-        */
     }
 
     @Override
@@ -76,30 +73,30 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
 
         menuItem = item;
+        Fragment fragment = null;
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (id == R.id.nav_car) {
-
+        if (id == R.id.nav_car) {               //Cada opcion del menu cargará su propio fragment para no sobrecargar con activities
+            fragment = new MiscochesFragment();
         } else if (id == R.id.nav_news) {
-           /* Aqui ponemos cada funcionalidad del menu ---POR DIOS CREAR METODO PARA QUE NO QUEDE TAN CERDO
-            //Añadir un fragmento
-            Fragment fragment = new MenuFragment();
-            Bundle args = new Bundle();
-            //Accion de navegar del fragment
-
-            fragment.setArguments(args);
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_layout,fragment).commit();
-            */
+            fragment = new NoticiasFragment();
         } else if (id == R.id.nav_check) {
-
+            fragment = new ComprobarFragment();
         } else if (id == R.id.nav_alarm) {
+            fragment = new RecordatoriosFragment();
+        }
 
+        //Con esto cargaremos los fragments en la vista content_layout
+        if(fragment != null){
+            getSupportFragmentManager().beginTransaction().add(R.id.content_layout,fragment).commit();
         }
 
         drawer =  findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     //Guardamos datos del bundle
     @Override
@@ -113,18 +110,5 @@ public class MainActivity extends AppCompatActivity
         onNavigationItemSelected(navigationView.getMenu().findItem(savedInstanceState.getInt(MENU_ITEM)));
         super.onRestoreInstanceState(savedInstanceState);
     }
-/*
-    public static class MenuFragment extends Fragment{
-        public  MenuFragment(){}
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
-            View rootView = inflater.inflate(R.layout.content_main, container, false);
-
-
-            return rootView;
-        }
-    }
-
-    */
 }

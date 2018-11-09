@@ -6,4 +6,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="mis_coches">Mis coches</string>
+    <string name="noticias">Noticias</string>
+    <string name="comprobar">Comprobar</string>
+    <string name="recordatorios">Recordatorios</string>
+    <string name="Holamundo">hola mundo</string>
 </resources>

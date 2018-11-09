@@ -20,10 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--Viewgroup desde el que vamos a cargar los fragments relativos a las opciones del menu -->
-    <FrameLayout
-        android:id="@+id/content_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+    <include layout="@layout/content_main"/>
+
 </android.support.design.widget.CoordinatorLayout>
