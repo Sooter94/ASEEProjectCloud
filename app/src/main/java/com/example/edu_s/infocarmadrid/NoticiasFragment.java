@@ -7,9 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 public class NoticiasFragment extends Fragment {
     @Nullable
@@ -21,7 +21,7 @@ public class NoticiasFragment extends Fragment {
 
         WebView wv = rootView.findViewById(R.id.webview_twitter);
 
-        String url = "https://www.google.com";
+        String url = "https://twitter.com/ComunidadMadrid";
         wv.loadUrl(url);
         wv.setWebViewClient(new WebViewClient() {
             @Override
