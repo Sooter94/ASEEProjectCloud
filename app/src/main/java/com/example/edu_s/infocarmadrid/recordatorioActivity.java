@@ -1,6 +1,9 @@
 package com.example.edu_s.infocarmadrid;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,15 +31,19 @@ public class recordatorioActivity extends AppCompatActivity
     private MenuItem menuItem;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
+    public static final int REQUEST_CODE=101;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recordatorio);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addButton);
+        FloatingActionButton fab = findViewById(R.id.addButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,8 +58,44 @@ public class recordatorioActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void activateAlarm(){
+
+         /*
+        1st Param : Context
+        2nd Param : Integer request code
+        3rd Param : Wrapped Intent
+        4th Intent: Flag
+        */
+        Intent intent=new Intent(this,AlarmBroadcastReceiver.class);
+        PendingIntent.getBroadcast(this,REQUEST_CODE,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 5);
+        calendar.set(Calendar.MINUTE, 30);
+        /*
+        Alarm will be triggered once exactly at 5:30
+        */
+        alarmMgr.setExact(AlarmManager.RTC, calendar.getTimeInMillis(), alarmIntent);
+        /*
+        1st Param : Type of the Alarm
+        2nd Param : Time in milliseconds when the alarm will be triggered first
+        3rd Param :Pending Intent
+        Note that we have changed the type to RTC as we are using Wall clock time. Also device wont wake up
+        when the alarm is triggered
+        */
+        
+    }
+    public void cancelAlarm(){
+        // If the alarm has been set, cancel it.
+        if (alarmMgr!= null) {
+            alarmMgr.cancel(alarmIntent);
+        }
     }
 
     @Override
