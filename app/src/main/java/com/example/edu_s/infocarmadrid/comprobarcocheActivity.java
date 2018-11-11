@@ -2,9 +2,12 @@ package com.example.edu_s.infocarmadrid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+public class comprobarcocheActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String MENU_ITEM = "MenuItem";
@@ -26,13 +29,21 @@ public class MainActivity extends AppCompatActivity
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_comprobarcoche);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
         drawer = findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
@@ -40,14 +51,13 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override
     public void onBackPressed() {
-        drawer = findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -55,17 +65,10 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
         menuItem = item;
         Fragment fragment = null;
 
@@ -93,20 +96,4 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-/*
-    //Guardamos datos del bundle
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        outState.putInt(MENU_ITEM, menuItem.getItemId());
-        super.onSaveInstanceState(outState, outPersistentState);
-    }
-    //Restauramos datos del bundle para no perder los datos
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        onNavigationItemSelected(navigationView.getMenu().findItem(savedInstanceState.getInt(MENU_ITEM)));
-        super.onRestoreInstanceState(savedInstanceState);
-    }
-*/
 }

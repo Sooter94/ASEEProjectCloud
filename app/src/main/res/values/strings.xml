@@ -11,4 +11,10 @@
     <string name="comprobar">Comprobar</string>
     <string name="recordatorios">Recordatorios</string>
     <string name="Holamundo">hola mundo</string>
+    <string name="nombre_coche">Modelo Coche</string>
+    <string name="modelo_coche">Modelo Coche</string>
+    <string name="title_activity_miscoches">Mis coches</string>
+    <string name="title_activity_comprobarcoche">Comprobar Coche</string>
+    <string name="title_activity_recordatorio">Recordatorios</string>
+    <string name="marca_coche">Marca Coche</string>
 </resources>

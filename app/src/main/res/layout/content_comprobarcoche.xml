@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity">
-
+    tools:context=".comprobarcocheActivity"
+    tools:showIn="@layout/app_bar_floatingbutton">
 
     <!--Viewgroup desde el que vamos a cargar los fragments relativos a las opciones del menu -->
     <FrameLayout
