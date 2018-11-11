@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 public class NoticiasFragment extends Fragment {
@@ -14,17 +16,21 @@ public class NoticiasFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getActivity().setTitle("Noticias");
-        return inflater.inflate(R.layout.fragment_noticias, container, false);
-    }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.noticiasButton).setOnClickListener(new View.OnClickListener() {
+        View rootView = inflater.inflate(R.layout.fragment_noticias, container, false);
+
+        WebView wv = rootView.findViewById(R.id.webview_twitter);
+
+        String url = "https://www.google.com";
+        wv.loadUrl(url);
+        wv.setWebViewClient(new WebViewClient() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Estamos en Noticias", Toast.LENGTH_SHORT).show();
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
             }
         });
+
+        return rootView;
     }
 }
