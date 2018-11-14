@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-public class AñadirCocheFragment extends Fragment {
+public class AddCocheFragment extends Fragment {
 
     @Nullable
     @Override
