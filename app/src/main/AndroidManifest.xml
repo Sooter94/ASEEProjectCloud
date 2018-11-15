@@ -29,6 +29,10 @@
             android:label="@string/title_activity_miscoches"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".AddCocheActivity"
+            android:label="Add Coche"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".comprobarcocheActivity"
             android:label="@string/title_activity_comprobarcoche"
             android:theme="@style/AppTheme.NoActionBar" />

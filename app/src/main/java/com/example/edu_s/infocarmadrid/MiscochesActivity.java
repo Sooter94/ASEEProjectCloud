@@ -17,6 +17,9 @@ import android.view.MenuItem;
 public class MiscochesActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    // Add a ToDoItem Request Code
+    private static final int ADD_COCHE_ITEM_REQUEST = 0;
+
     private static final String MENU_ITEM = "MenuItem";
     private Toolbar toolbar;
     private DrawerLayout drawer;
@@ -37,10 +40,9 @@ public class MiscochesActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AddCocheFragment addcarFrag = new AddCocheFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_layout, addcarFrag,"findThisFragment").addToBackStack(null).commit();
-            }
-
+                // - Attach Listener to FloatingActionButton. Implement onClick()
+                Intent intent = new Intent(MiscochesActivity.this, AddCocheActivity.class);
+                startActivityForResult(intent,ADD_COCHE_ITEM_REQUEST);           }
         });
 
         drawer =  findViewById(R.id.drawer_layout);
@@ -62,7 +64,6 @@ public class MiscochesActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
 
 
     @SuppressWarnings("StatementWithEmptyBody")
