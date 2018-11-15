@@ -23,4 +23,14 @@
     <string name="formato_hora">formato_hora</string>
     <string name="titulo">title</string>
     <string name="titlulo_pickers">Establezca un alarma para la notificación de cambio</string>
+    <string name="distintivo">Distintivo Ambiental</string>
+    <string name="dist_cero">Cero</string>
+    <string name="dist_sd">Sin Distintivo</string>
+    <string name="dist_eco">ECO</string>
+    <string name="dist_amarillo">Amarillo</string>
+    <string name="dist_verde">Verde</string>
+    <string name="cancel_string">Cancelar</string>
+    <string name="reset_string">Reset</string>
+    <string name="submit_string">Añadir</string>
+
 </resources>
