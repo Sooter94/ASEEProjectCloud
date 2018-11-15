@@ -23,7 +23,7 @@ public class CocheItem {
         public final static String ID = "ID";
         public final static String NAME = "name";
         public final static String MATRICULA = "matricula";
-        public final static String DISTINTIVO = "status";
+        public final static String DISTINTIVO = "distintivo";
 
         private long mID;
         private String mName = new String();
@@ -72,7 +72,7 @@ public class CocheItem {
             mMatricula = matricula;
         }
 
-        public Distintivo getmDistintivo() {
+        public Distintivo getDistintivo() {
             return mDistintivo;
         }
 

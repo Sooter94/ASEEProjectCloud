@@ -12,7 +12,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 public class MiscochesActivity extends AppCompatActivity
@@ -38,7 +37,7 @@ public class MiscochesActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AñadirCocheFragment  addcarFrag = new AñadirCocheFragment();
+                AddCocheFragment addcarFrag = new AddCocheFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_layout, addcarFrag,"findThisFragment").addToBackStack(null).commit();
             }
 
