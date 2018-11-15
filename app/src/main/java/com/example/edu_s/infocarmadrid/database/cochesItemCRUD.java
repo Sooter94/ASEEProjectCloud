@@ -77,7 +77,7 @@ public class cochesItemCRUD {
         ContentValues values = new ContentValues();
         values.put(DBContract.cocheItem.COLUMN_NAME_NAME, item.getName());
         values.put(DBContract.cocheItem.COLUMN_NAME_MATRICULA, item.getMatricula());
-        values.put(cocheItem.COLUMN_NAME_DISTINTIVO, item.getmDistintivo().name());
+        values.put(cocheItem.COLUMN_NAME_DISTINTIVO, item.getDistintivo().name());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId = db.insert(DBContract.cocheItem.TABLE_NAME, null, values);

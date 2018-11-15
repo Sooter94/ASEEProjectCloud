@@ -17,6 +17,8 @@
     <string name="title_activity_comprobarcoche">Comprobar Coche</string>
     <string name="title_activity_recordatorio">Recordatorios</string>
     <string name="marca_coche">Marca Coche</string>
+    <string name="nick_coche">Nombra tu coche</string>
+    <string name="matricula_coche">Matricula</string>
     <string name="formato_fecha">formato_fecha</string>
     <string name="formato_hora">formato_hora</string>
     <string name="titulo">title</string>
