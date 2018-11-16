@@ -10,7 +10,6 @@
     <string name="noticias">Noticias</string>
     <string name="comprobar">Comprobar</string>
     <string name="recordatorios">Recordatorios</string>
-    <string name="Holamundo">hola mundo</string>
     <string name="nombre_coche">Modelo Coche</string>
     <string name="modelo_coche">Modelo Coche</string>
     <string name="title_activity_miscoches">Mis coches</string>
@@ -32,5 +31,7 @@
     <string name="cancel_string">Cancelar</string>
     <string name="reset_string">Reset</string>
     <string name="submit_string">Añadir</string>
+    <string name="add_coche">Añadir coche</string>
+    <string name="home">Inicio</string>
 
 </resources>

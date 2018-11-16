@@ -174,6 +174,12 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
         if (id == R.id.nav_car) {
             Intent myIntent = new Intent(this, MiscochesActivity.class);
             this.startActivity(myIntent);
+        }  else if (id == R.id.nav_add) {
+            Intent myIntent = new Intent(this, AddCocheActivity.class);
+            this.startActivity(myIntent);
+        } else if (id == R.id.nav_home) {
+            Intent myIntent = new Intent(this, MainActivity.class);
+            this.startActivity(myIntent);
         } else if (id == R.id.nav_news) {
             fragment = new NoticiasFragment();
         } else if (id == R.id.nav_check) {
@@ -183,7 +189,6 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
             Intent myIntent = new Intent(this, recordatorioActivity.class);
             this.startActivity(myIntent);
         }
-
         //Con esto cargaremos los fragments en la vista content_layout
         if(fragment != null){
             getSupportFragmentManager().beginTransaction().replace(R.id.content_layout,fragment).commit();

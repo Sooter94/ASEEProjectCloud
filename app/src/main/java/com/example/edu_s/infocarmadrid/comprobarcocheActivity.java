@@ -69,6 +69,12 @@ public class comprobarcocheActivity extends AppCompatActivity
         if (id == R.id.nav_car) {
             Intent myIntent = new Intent(this, MiscochesActivity.class);
             this.startActivity(myIntent);
+        }  else if (id == R.id.nav_add) {
+            Intent myIntent = new Intent(this, AddCocheActivity.class);
+            this.startActivity(myIntent);
+        } else if (id == R.id.nav_home) {
+            Intent myIntent = new Intent(this, MainActivity.class);
+            this.startActivity(myIntent);
         } else if (id == R.id.nav_news) {
             fragment = new NoticiasFragment();
         } else if (id == R.id.nav_check) {
