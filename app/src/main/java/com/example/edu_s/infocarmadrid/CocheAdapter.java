@@ -105,11 +105,10 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder>{
                 // - Display Title in TextView
                 name.setText(cocheItem.getName());
 
-                // - Display Priority in a TextView
+                // - Display Matricula in a TextView
                 matricula.setText(cocheItem.getMatricula());
 
-                //  - Display Time and Date.
-                // Hint - use ToDoItem.FORMAT.format(toDoItem.getDate()) to get date and time String
+                //  - Display Distintivo.
                 distintivo.setText(cocheItem.getDistintivo().toString());
 
 

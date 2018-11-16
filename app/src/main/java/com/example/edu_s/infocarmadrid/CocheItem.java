@@ -28,7 +28,7 @@ public class CocheItem {
         private long mID;
         private String mName = new String();
         private String mMatricula = new String();
-        private Distintivo mDistintivo = Distintivo.CERO;
+        private Distintivo mDistintivo = Distintivo.SD;
 
 
         CocheItem(String name, String matricula, Distintivo distintivo) {
@@ -41,7 +41,7 @@ public class CocheItem {
             this.mID = ID;
             this.mName = name;
             this.mMatricula = matricula;
-            this.mDistintivo = Distintivo.CERO;
+            this.mDistintivo = Distintivo.SD;
         }
 
         // Create a new ToDoItem from data packaged in an Intent
