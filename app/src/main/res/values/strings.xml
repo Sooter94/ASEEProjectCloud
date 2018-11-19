@@ -33,5 +33,6 @@
     <string name="submit_string">Añadir</string>
     <string name="add_coche">Añadir coche</string>
     <string name="home">Inicio</string>
+    <string name="title_activity_edit_car">EditCarActivity</string>
 
 </resources>

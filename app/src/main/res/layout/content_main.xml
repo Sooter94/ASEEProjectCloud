@@ -9,11 +9,10 @@
     tools:context=".MainActivity">
 
 
-    <!--Viewgroup desde el que vamos a cargar los fragments relativos a las opciones del menu -->
-    <FrameLayout
-        android:id="@+id/content_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
 </RelativeLayout>

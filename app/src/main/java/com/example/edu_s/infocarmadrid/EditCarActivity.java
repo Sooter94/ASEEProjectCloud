@@ -1,29 +1,29 @@
 package com.example.edu_s.infocarmadrid;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
+import android.view.View;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import java.util.Date;
 
-import com.example.edu_s.infocarmadrid.CocheItem.Distintivo;
-
-public class AddCocheActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class EditCarActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String MENU_ITEM = "MenuItem";
     private Toolbar toolbar;
@@ -44,16 +44,16 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
     private RadioButton mDefaultDistintivo;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_add_car);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_car);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-            mNameText = (EditText) findViewById(R.id.nameView);
-            mMatriculaText = (EditText) findViewById(R.id.matriculaView);
-            mDefaultDistintivo = (RadioButton) findViewById(R.id.dist_Cero);
-            mDistintivo = (RadioGroup) findViewById(R.id.distintivoView);
+        mNameText = (EditText) findViewById(R.id.nameView);
+        mMatriculaText = (EditText) findViewById(R.id.matriculaView);
+        mDefaultDistintivo = (RadioButton) findViewById(R.id.dist_Cero);
+        mDistintivo = (RadioGroup) findViewById(R.id.distintivoView);
 
         drawer =  findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
@@ -129,30 +129,30 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
                 }
             });
             */
-        }
+    }
 
-/*
-        private Distintivo getDistintivo() {
+    /*
+            private Distintivo getDistintivo() {
 
-            switch (mDistintivo.getCheckedRadioButtonId()) {
-                case R.id.dist_Eco: {
-                    return Distintivo.ECO;
-                }
-                case R.id.dist_Sd: {
-                    return Distintivo.SD;
-                }
-                case R.id.dist_Verde: {
-                    return Distintivo.VERDE;
-                }
-                case R.id.dist_Amarillo: {
-                    return Distintivo.AMARILLO;
-                }
-                default: {
-                    return Distintivo.CERO;
+                switch (mDistintivo.getCheckedRadioButtonId()) {
+                    case R.id.dist_Eco: {
+                        return Distintivo.ECO;
+                    }
+                    case R.id.dist_Sd: {
+                        return Distintivo.SD;
+                    }
+                    case R.id.dist_Verde: {
+                        return Distintivo.VERDE;
+                    }
+                    case R.id.dist_Amarillo: {
+                        return Distintivo.AMARILLO;
+                    }
+                    default: {
+                        return Distintivo.CERO;
+                    }
                 }
             }
-        }
-*/
+    */
     @Override
     public void onBackPressed() {
         drawer = findViewById(R.id.drawer_layout);
@@ -199,15 +199,12 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-        private void log(String msg) {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Log.i(TAG, msg);
+    private void log(String msg) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
+        Log.i(TAG, msg);
+    }
 }
-
-
