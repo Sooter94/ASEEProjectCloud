@@ -21,7 +21,7 @@ public class cochesDBhelper extends SQLiteOpenHelper {
                     DBContract.cocheItem._ID + " INTEGER PRIMARY KEY," +
                     DBContract.cocheItem.COLUMN_NAME_MATRICULA + TEXT_TYPE + COMMA_SEP +
                     DBContract.cocheItem.COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
-                    DBContract.cocheItem.COLUMN_NAME_DISTINTIVO + TEXT_TYPE + COMMA_SEP +
+                    DBContract.cocheItem.COLUMN_NAME_DISTINTIVO + TEXT_TYPE +
                     " )";
 
     private static final String SQL_DELETE_COCHES =

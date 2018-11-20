@@ -7,8 +7,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -19,15 +17,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
 
-public class recordatorioActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class RecordatorioActivity extends AppCompatActivity {
 
     private static final String MENU_ITEM = "MenuItem";
     private Toolbar toolbar;
@@ -68,15 +64,6 @@ public class recordatorioActivity extends AppCompatActivity
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        drawer =  findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
         etFecha = findViewById(R.id.et_mostrar_fecha_picker);
         etHora = findViewById(R.id.et_mostrar_hora_picker);
@@ -191,41 +178,4 @@ public class recordatorioActivity extends AppCompatActivity
         }
     }
 
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        menuItem = item;
-        Fragment fragment = null;
-
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        if (id == R.id.nav_car) {
-            Intent myIntent = new Intent(this, MiscochesActivity.class);
-            this.startActivity(myIntent);
-        }  else if (id == R.id.nav_add) {
-            Intent myIntent = new Intent(this, AddCocheActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_home) {
-            Intent myIntent = new Intent(this, MainActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_news) {
-            fragment = new NoticiasFragment();
-        } else if (id == R.id.nav_check) {
-            Intent myIntent = new Intent(this, comprobarcocheActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_alarm) {
-            Intent myIntent = new Intent(this, recordatorioActivity.class);
-            this.startActivity(myIntent);
-        }
-
-        //Con esto cargaremos los fragments en la vista content_layout
-        if(fragment != null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_layout,fragment).commit();
-        }
-
-        drawer =  findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 }

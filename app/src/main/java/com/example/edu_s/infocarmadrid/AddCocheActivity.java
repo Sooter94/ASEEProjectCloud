@@ -1,10 +1,8 @@
 package com.example.edu_s.infocarmadrid;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,11 +17,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import java.util.Date;
-
 import com.example.edu_s.infocarmadrid.CocheItem.Distintivo;
 
-public class AddCocheActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.Date;
+
+public class AddCocheActivity extends AppCompatActivity {
 
     private static final String MENU_ITEM = "MenuItem";
     private Toolbar toolbar;
@@ -55,16 +53,7 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
             mDefaultDistintivo = (RadioButton) findViewById(R.id.dist_Cero);
             mDistintivo = (RadioGroup) findViewById(R.id.distintivoView);
 
-        drawer =  findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
-        navigationView =  findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-/*
         // OnClickListener for the Cancel Button,
 
             final Button cancelButton = (Button) findViewById(R.id.cancelButton);
@@ -128,10 +117,10 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
 
                 }
             });
-            */
+
         }
 
-/*
+
         private Distintivo getDistintivo() {
 
             switch (mDistintivo.getCheckedRadioButtonId()) {
@@ -152,7 +141,7 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
                 }
             }
         }
-*/
+
     @Override
     public void onBackPressed() {
         drawer = findViewById(R.id.drawer_layout);
@@ -163,42 +152,6 @@ public class AddCocheActivity extends AppCompatActivity implements NavigationVie
         }
     }
 
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        menuItem = item;
-        Fragment fragment = null;
-
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        if (id == R.id.nav_car) {
-            Intent myIntent = new Intent(this, MiscochesActivity.class);
-            this.startActivity(myIntent);
-        }  else if (id == R.id.nav_add) {
-            Intent myIntent = new Intent(this, AddCocheActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_home) {
-            Intent myIntent = new Intent(this, MainActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_news) {
-            fragment = new NoticiasFragment();
-        } else if (id == R.id.nav_check) {
-            Intent myIntent = new Intent(this, comprobarcocheActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_alarm) {
-            Intent myIntent = new Intent(this, recordatorioActivity.class);
-            this.startActivity(myIntent);
-        }
-        //Con esto cargaremos los fragments en la vista content_layout
-        if(fragment != null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_layout,fragment).commit();
-        }
-
-        drawer =  findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
         private void log(String msg) {
             try {
                 Thread.sleep(500);

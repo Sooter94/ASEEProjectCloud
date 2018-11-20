@@ -2,117 +2,75 @@ package com.example.edu_s.infocarmadrid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-    private static final String MENU_ITEM = "MenuItem";
-    private Toolbar toolbar;
-    private DrawerLayout drawer;
-    private ActionBarDrawerToggle toggle;
-    private NavigationView navigationView;
-    private MenuItem menuItem;
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
-
+    private MainContentFragment mainContentFragment = new MainContentFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        // Set preferences default values
+        //PreferenceManager.setDefaultValues( this , R.xml.preferences , false );
 
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        // Display the fragment as the main content.
+        getFragmentManager().beginTransaction()
+                .add(android.R.id.content, mainContentFragment)
+                .commit();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        // Inflate the main; this adds items to the action bar if it is present.
+        getMenuInflater().inflate( R.menu.main , menu);
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
 
-        menuItem = item;
-        Fragment fragment = null;
-
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
+
         if (id == R.id.nav_car) {
-            Intent myIntent = new Intent(this, MiscochesActivity.class);
-            this.startActivity(myIntent);
-        }  else if (id == R.id.nav_add) {
-            Intent myIntent = new Intent(this, AddCocheActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_home) {
-            Intent myIntent = new Intent(this, MainActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_news) {
-            fragment = new NoticiasFragment();
-        } else if (id == R.id.nav_check) {
-            Intent myIntent = new Intent(this, comprobarcocheActivity.class);
-            this.startActivity(myIntent);
-        } else if (id == R.id.nav_alarm) {
-            Intent myIntent = new Intent(this, recordatorioActivity.class);
-            this.startActivity(myIntent);
+            // Abrir la activity con la lista de eventos
+            Intent intent = new Intent( this , MiscochesActivity.class );
+            startActivity( intent );
+            return true;
+        }
+        if (id == R.id.nav_check) {
+            // Abrir la activity con la lista de eventos
+            Intent intent = new Intent( this , ConsultarDistintivoActivity.class );
+            startActivity( intent );
+            return true;
         }
 
-        //Con esto cargaremos los fragments en la vista content_layout
-        if(fragment != null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_layout,fragment).commit();
+
+    /*    if (id == R.id.action_settings) {
+
+            // Display the settings fragment as the main content.
+            getFragmentManager().beginTransaction()
+                    .replace( android.R.id.content , new SettingsFragment())
+                    .addToBackStack( null )
+                    .commit();
+
+            return true;
         }
-
-        drawer =  findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-
-/*
-    //Guardamos datos del bundle
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        outState.putInt(MENU_ITEM, menuItem.getItemId());
-        super.onSaveInstanceState(outState, outPersistentState);
-    }
-    //Restauramos datos del bundle para no perder los datos
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        onNavigationItemSelected(navigationView.getMenu().findItem(savedInstanceState.getInt(MENU_ITEM)));
-        super.onRestoreInstanceState(savedInstanceState);
-    }
 */
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

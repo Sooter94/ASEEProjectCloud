@@ -13,16 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MiscochesActivity"
             android:label="@string/title_activity_miscoches"
@@ -32,17 +31,14 @@
             android:label="Add Coche"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".comprobarcocheActivity"
+            android:name=".ConsultarDistintivoActivity"
             android:label="@string/title_activity_comprobarcoche"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".recordatorioActivity"
+            android:name=".RecordatorioActivity"
             android:label="@string/title_activity_recordatorio"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".EditCarActivity"
-            android:label="@string/title_activity_edit_car"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

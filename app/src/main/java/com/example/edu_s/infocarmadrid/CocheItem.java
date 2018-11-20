@@ -44,7 +44,7 @@ public class CocheItem {
             this.mDistintivo = Distintivo.SD;
         }
 
-        // Create a new ToDoItem from data packaged in an Intent
+        // Create a new CocheItem from data packaged in an Intent
         CocheItem(Intent intent) {
             mID = intent.getLongExtra(CocheItem.ID,0);
             mName = intent.getStringExtra(CocheItem.NAME);
