@@ -1,4 +1,4 @@
-package com.example.edu_s.infocarmadrid;
+package com.example.edu_s.infocarmadrid.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.example.edu_s.infocarmadrid.R;
 
 public class NoticiasFragment extends Fragment {
     @Nullable

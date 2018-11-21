@@ -2,7 +2,7 @@ package com.example.edu_s.infocarmadrid.room;
 
 import android.arch.persistence.room.TypeConverter;
 
-import com.example.edu_s.infocarmadrid.CocheItem;
+import com.example.edu_s.infocarmadrid.activities.CocheItem;
 
 /**
  * Created by fgonzalez on 21/11/2018.

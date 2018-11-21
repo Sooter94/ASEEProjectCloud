@@ -3,9 +3,8 @@ package com.example.edu_s.infocarmadrid.room;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Update;
 
-import com.example.edu_s.infocarmadrid.CocheItem;
+import com.example.edu_s.infocarmadrid.activities.CocheItem;
 
 import java.util.List;
 

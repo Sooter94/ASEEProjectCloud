@@ -1,4 +1,4 @@
-package com.example.edu_s.infocarmadrid;
+package com.example.edu_s.infocarmadrid.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +17,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.edu_s.infocarmadrid.CocheItem.Distintivo;
+import com.example.edu_s.infocarmadrid.R;
+import com.example.edu_s.infocarmadrid.activities.CocheItem.Distintivo;
 
 import java.util.Date;
 

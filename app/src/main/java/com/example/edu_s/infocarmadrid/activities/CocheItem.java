@@ -1,4 +1,4 @@
-package com.example.edu_s.infocarmadrid;
+package com.example.edu_s.infocarmadrid.activities;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;

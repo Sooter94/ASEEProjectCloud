@@ -1,4 +1,4 @@
-package com.example.edu_s.infocarmadrid;
+package com.example.edu_s.infocarmadrid.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.edu_s.infocarmadrid.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

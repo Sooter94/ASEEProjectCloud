@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.example.edu_s.infocarmadrid.CocheItem;
+import com.example.edu_s.infocarmadrid.activities.CocheItem;
 
 /**
  * Created by fgonzalez on 20/11/2018.

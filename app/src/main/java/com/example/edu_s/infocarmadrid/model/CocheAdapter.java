@@ -1,14 +1,14 @@
-package com.example.edu_s.infocarmadrid;
+package com.example.edu_s.infocarmadrid.model;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.example.edu_s.infocarmadrid.R;
+import com.example.edu_s.infocarmadrid.activities.CocheItem;
 
 import java.util.ArrayList;
 import java.util.List;

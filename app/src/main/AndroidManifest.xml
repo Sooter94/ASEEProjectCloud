@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,20 +23,16 @@
         </activity>
 
         <activity
-            android:name=".MiscochesActivity"
+            android:name=".activities.MiscochesActivity"
             android:label="@string/title_activity_miscoches"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddCocheActivity"
+            android:name=".activities.AddCocheActivity"
             android:label="Add Coche"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ConsultarDistintivoActivity"
+            android:name=".activities.ConsultarDistintivoActivity"
             android:label="@string/title_activity_comprobarcoche"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RecordatorioActivity"
-            android:label="@string/title_activity_recordatorio"
             android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
