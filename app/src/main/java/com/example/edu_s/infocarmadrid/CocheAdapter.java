@@ -79,6 +79,12 @@ public class CocheAdapter extends RecyclerView.Adapter<CocheAdapter.ViewHolder>{
 
         }
 
+        public void delete(CocheItem item){
+            mItems.remove( item );
+            notifyDataSetChanged();
+        }
+
+
         public Object getItem(int pos) { return mItems.get(pos); }
 
         static class ViewHolder extends RecyclerView.ViewHolder {

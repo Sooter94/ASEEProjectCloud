@@ -1,83 +1,93 @@
 package com.example.edu_s.infocarmadrid;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Intent;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.example.edu_s.infocarmadrid.room.DistintivoConverter;
 
 /**
  * Created by fgonzalez on 14/11/2018.
  */
 
+@Entity(tableName = "coches")
 public class CocheItem {
 
+        @Ignore
         public static final String ITEM_SEP = System.getProperty("line.separator");
 
         public enum Distintivo {
             CERO, ECO, SD, AMARILLO, VERDE
         };
 
-
+        @Ignore
         public final static String ID = "ID";
+        @Ignore
         public final static String NAME = "name";
+        @Ignore
         public final static String MATRICULA = "matricula";
+        @Ignore
         public final static String DISTINTIVO = "distintivo";
 
-        private long mID;
-        private String mName = new String();
-        private String mMatricula = new String();
-        private Distintivo mDistintivo = Distintivo.SD;
+        @PrimaryKey(autoGenerate = true)
+        private long id;
+        private String name = new String();
+        private String matricula = new String();
+        @TypeConverters(DistintivoConverter.class)
+        private Distintivo distintivo = Distintivo.SD;
 
-
+        @Ignore
         CocheItem(String name, String matricula, Distintivo distintivo) {
-            this.mName = name;
-            this.mMatricula = matricula;
-            this.mDistintivo = distintivo;
+            this.name = name;
+            this.matricula = matricula;
+            this.distintivo = distintivo;
         }
 
-        public CocheItem(long ID, String name, String matricula, String distintivo) {
-            this.mID = ID;
-            this.mName = name;
-            this.mMatricula = matricula;
-            this.mDistintivo = Distintivo.SD;
+
+        public CocheItem(long id, String name, String matricula, Distintivo distintivo) {
+            this.id = id;
+            this.name = name;
+            this.matricula = matricula;
+            this.distintivo = distintivo;
         }
 
         // Create a new CocheItem from data packaged in an Intent
+        @Ignore
         CocheItem(Intent intent) {
-            mID = intent.getLongExtra(CocheItem.ID,0);
-            mName = intent.getStringExtra(CocheItem.NAME);
-            mMatricula =  intent.getStringExtra(CocheItem.MATRICULA);
-            mDistintivo = Distintivo.valueOf(intent.getStringExtra(CocheItem.DISTINTIVO));
+            id = intent.getLongExtra(CocheItem.ID,0);
+            name = intent.getStringExtra(CocheItem.NAME);
+            matricula =  intent.getStringExtra(CocheItem.MATRICULA);
+            distintivo = Distintivo.valueOf(intent.getStringExtra(CocheItem.DISTINTIVO));
         }
 
-        public long getID() { return mID; }
+        public long getId() { return id; }
 
-        public void setID(long ID) { this.mID = ID; }
+        public void setId(long ID) { this.id = ID; }
 
         public String getName() {
-            return mName;
+            return name;
         }
 
         public void setName(String name) {
-            mName = name;
+            this.name = name;
         }
 
         public String getMatricula() {
-            return mMatricula;
+            return matricula;
         }
 
         public void setMatricula(String matricula) {
-            mMatricula = matricula;
+            this.matricula = matricula;
         }
 
         public Distintivo getDistintivo() {
-            return mDistintivo;
+            return distintivo;
         }
 
         public void setDistintivo(Distintivo distintivo) {
-            mDistintivo = distintivo;
+            this.distintivo = distintivo;
         }
 
         // Take a set of String data values and
@@ -92,12 +102,12 @@ public class CocheItem {
         }
 
         public String toString() {
-            return mID + ITEM_SEP + mName + ITEM_SEP + mMatricula + ITEM_SEP + mDistintivo;
+            return id + ITEM_SEP + name + ITEM_SEP + matricula + ITEM_SEP + distintivo;
         }
 
         public String toLog() {
-            return "ID: " + mID + ITEM_SEP + "Name:" + mName + ITEM_SEP + "Matricula:" + mMatricula
-                    + ITEM_SEP + "Distintivo:" + mDistintivo;
+            return "ID: " + id + ITEM_SEP + "Name:" + name + ITEM_SEP + "Matricula:" + matricula
+                    + ITEM_SEP + "Distintivo:" + distintivo;
         }
 
 }
