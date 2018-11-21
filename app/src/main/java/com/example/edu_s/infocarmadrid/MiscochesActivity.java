@@ -122,8 +122,6 @@ public class MiscochesActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        // Load saved ToDoItems, if necessary
-
         if (mAdapter.getItemCount() == 0)
             loadItems();
     }
@@ -131,11 +129,8 @@ public class MiscochesActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
-        // ALTERNATIVE: Save all ToDoItems
-
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
