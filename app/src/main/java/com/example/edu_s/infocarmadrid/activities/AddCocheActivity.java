@@ -18,7 +18,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.edu_s.infocarmadrid.R;
-import com.example.edu_s.infocarmadrid.activities.CocheItem.Distintivo;
+import com.example.edu_s.infocarmadrid.model.CocheItem;
+import com.example.edu_s.infocarmadrid.model.CocheItem.Distintivo;
 
 import java.util.Date;
 

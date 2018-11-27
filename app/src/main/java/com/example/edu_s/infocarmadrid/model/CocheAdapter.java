@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.edu_s.infocarmadrid.R;
-import com.example.edu_s.infocarmadrid.activities.CocheItem;
 
 import java.util.ArrayList;
 import java.util.List;

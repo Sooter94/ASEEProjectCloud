@@ -1,4 +1,4 @@
-package com.example.edu_s.infocarmadrid.activities;
+package com.example.edu_s.infocarmadrid.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
@@ -55,7 +55,7 @@ public class CocheItem {
 
         // Create a new CocheItem from data packaged in an Intent
         @Ignore
-        CocheItem(Intent intent) {
+        public CocheItem(Intent intent) {
             id = intent.getLongExtra(CocheItem.ID,0);
             name = intent.getStringExtra(CocheItem.NAME);
             matricula =  intent.getStringExtra(CocheItem.MATRICULA);
